@@ -1,4 +1,4 @@
-package com.in28minutes.rest.webservices.restfulwebservices;
+package com.in28minutes.rest.webservices.restfulwebservices.user;
 
 import org.springframework.stereotype.Component;
 
@@ -33,5 +33,10 @@ public class UserDaoService {
         user.setId(++userCount);
         users.add(user);
         return user;
+    }
+
+    public void deleteById(int id) {
+        Predicate<? super User> predicate = user -> user.getId().equals(id);
+        users.removeIf(predicate);
     }
 }
